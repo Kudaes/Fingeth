@@ -19,7 +19,7 @@ from finger_controler import FingerprintControler
 class Controler():
     pathInfo = "./conf/contractInfo"
     pathContract = "./contract/contract.sol"
-    pathProvider = ""
+    pathProvider = "/root/Desktop/blockchain1/geth.ipc"
     pathIvs = "./conf/ivs"
     address = None
     abi = None
@@ -160,7 +160,7 @@ class Controler():
             
             # Wait for the transaction to be mined, and get the transaction receipt
             tx_receipt = self.w3.eth.waitForTransactionReceipt(tx_hash)
-            
+
             # Create the contract instance with the newly-deployed address
             self.contract = self.w3.eth.contract(
                 address=tx_receipt.contractAddress,
@@ -169,6 +169,9 @@ class Controler():
                         
             
             if self.contract.functions.getElem().call() == 0:
+                
+                self.address = tx_receipt.contractAddress
+                self.abi = contract_interface['abi']                
                 my_file = Path(self.pathInfo)
                 with open(my_file,'w') as f:  
                     f.write(tx_receipt.contractAddress + '\n')

@@ -26,7 +26,7 @@ class ClientSocket():
         s.connect((host,port))
         dataToSend = []
         dataToSend.append(str(self.address) + self.ENDSTR)
-        dataToSend.append(self.abi + self.ENDSTR)
+        dataToSend.append(str(self.abi) + self.ENDSTR)
         
         chain = self.hashes[0].hex()
         for i in range(len(self.hashes)-1):
@@ -51,7 +51,8 @@ class ClientSocket():
             while not data.endswith(self.ENDSTR):
                 data += s.recv(1040).decode('utf8') 
                 
-        except:
+        except IOError as e:
+            print(e)
             raise IOError('Connection error.')
         finally:
             s.close()  

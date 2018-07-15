@@ -7,7 +7,7 @@ import ast
 
 
 class ServerControler():
-    pathProvider = "/root/Desktop/blockchain1/geth.ipc"
+    pathProvider = ""
     DEL = "[*]"
     
     
