@@ -19,7 +19,7 @@ from finger_controler import FingerprintControler
 class Controler():
     pathInfo = "./conf/contractInfo"
     pathContract = "./contract/contract.sol"
-    pathProvider = "/root/Desktop/blockchain1/geth.ipc"
+    pathProvider = ""
     pathIvs = "./conf/ivs"
     address = None
     abi = None
