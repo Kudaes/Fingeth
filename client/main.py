@@ -23,7 +23,7 @@ def main():
                 
         elif val == 2:
             
-            r = int(input("1- Add this devide.\m2- Read fingerprint file.\n>"))
+            r = int(input("1- Add this devide.\n2- Read fingerprint file.\n>"))
             ret = 0
             if r == 1:
                 ret = ctr.addDevice()
