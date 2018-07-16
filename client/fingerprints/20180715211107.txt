@@ -1,6 +1,0 @@
-innotek GmbH
-VirtualBox
-12/01/2006
-Oracle Corporation
-VirtualBox
-kali('64bit', 'ELF')x86_64Linux

@@ -31,7 +31,7 @@ pip3 install -r requirements.txt
 
 ### Installing
 
-First of all you have to setup your own private Ethereum network. Create your custom Genesis  file to initiate it. Be sure your network ID is random enough to be "unique" (otherwise external nodes may find your network).
+First of all you have to set up your own private Ethereum network. In order to do that, you will need to create your custom Genesis file to generate the first block of the chain. Make sure your network ID is random enough to be "unique" (otherwise external nodes may find your network).
 
 Genesis file example:
 
@@ -74,16 +74,16 @@ After that open a new terminal and type in:
 ```
 geth attach /path/to/your/blockchaindir/geth.ipc
 ```
-You will get a Javascript Geth console connected to your Ethereum node. After that you have to create an account in order to interact with the network. We will use this account to deploy contracts to the network and register our fingerprints.
+You will get a Javascript Geth console connected to your Ethereum node. Then you have to create an account in order to interact with the network. We will use this account to deploy contracts to the network and register our fingerprints.
 
 ```
 personal.newAccount()
 personal.unlockAccount(web3.eth.accounts[0],'yourpassword',0) // This will unlock permanently your account
 miner.start() // Get some ether. Use miner.stop() to stop mining.  
 ```
-Remember you need at least one node in the network mining each time you create a new transaction (by deploying contracts or by adding new fingerprints).
+Remember you need at least one node in the network mining every time you create a new transaction (by deploying contracts or by adding new fingerprints).
 
-Repeat previous steps in another machine if you want to have more than one node in your network and also if you want to prove the authentication running client and server in separated machines.
+Repeat previous steps in another machine if you want to have more than one node in your network and also if you want to test the authentication running client and server in separated machines.
 
 For example, you could open the Geth console and run at client side:
 
@@ -97,9 +97,9 @@ Then at server side:
 admin.addPeer(clientEnodeInfo)
 ```
 
-After that, both peers will be connected and synchronized.
+Once this is done, both peers will be connected and synchronized.
 
-Finally, remember to update the value of variable "pathProvider" in /client/controler.py and /server/server_controler.py to point to your ipc files. Also, set the IP and the port where the server will be listening to in the file /server/server_main.py.
+Finally, remember to update the value of variable "pathProvider" in /client/controler.py and /server/server_controler.py to point to your IPC files. Also, set the IP and the port where the server will be listening to in the file /server/server_main.py.
 
 ## Testing the tool
 
